@@ -3,19 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Categories</title>
+  <title>Image Gallery</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h2>🌿 Nature</h2>
-  <div class="gallery" id="nature"></div>
+  <header>
+    <h1>📸 Image Gallery</h1>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="nature">Nature</button>
+      <button class="filter-btn" data-category="city">City</button>
+      <button class="filter-btn" data-category="animals">Animals</button>
+    </div>
+  </header>
 
-  <h2>🐾 Animals</h2>
-  <div class="gallery" id="animals"></div>
+  <main class="gallery"></main>
 
-  <h2>🏙️ City</h2>
-  <div class="gallery" id="city"></div>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-image" src="" alt="">
+    <div class="lightbox-caption"></div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
