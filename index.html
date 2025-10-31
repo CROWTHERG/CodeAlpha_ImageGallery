@@ -1,68 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Image Gallery — Nature / City / Animals</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Categories</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Image Gallery</h1>
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="nature">Nature</button>
-      <button class="filter-btn" data-category="city">City</button>
-      <button class="filter-btn" data-category="animals">Animals</button>
-    </div>
-  </header>
 
-  <main class="gallery">
-    <!-- NATURE (10) -->
-    <div class="gallery-item" data-category="nature"><img src="https://www.istockphoto.com/photo/twilight-at-spirit-island-gm485371557-38624866auto=format&fit=crop&w=800&q=80" alt="Mountain Landscape"><div class="caption">Mountain Landscape</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://www.istockphoto.com/photo/stream-in-the-forest-gm619963520-108182791?searchscope=image%2Cfilmauto=format&fit=crop&w=800&q=80" alt="Forest Creek"><div class="caption">Forest Creek</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://www.istockphoto.com/photo/deep-forest-waterfall-in-thailand-erawan-waterfall-national-park-kanjanaburi-thailand-gm1473666403-503736697?searchscope=image%2Cfilmauto=format&fit=crop&w=800&q=80" alt="Waterfall"><div class="caption">Waterfall</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=80" alt="Desert Dunes"><div class="caption">Desert Dunes</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://images.unsplash.com/photo-1519817614152-22fbe5eac1d?auto=format&fit=crop&w=800&q=80" alt="Sunrise Over Hills"><div class="caption">Sunrise Over Hills</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://images.unsplash.com/photo-1501785888041-8264ecb5eb32?auto=format&fit=crop&w=800&q=80" alt="Rainforest Canopy"><div class="caption">Rainforest Canopy</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=800&q=80" alt="Rocky Coastline"><div class="caption">Rocky Coastline</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Snow Mountain Peak"><div class="caption">Snow Mountain Peak</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=80" alt="Wildflower Meadow"><div class="caption">Wildflower Meadow</div></div>
-    <div class="gallery-item" data-category="nature"><img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80" alt="Rainy Forest Path"><div class="caption">Rainy Forest Path</div></div>
+  <h2>🌿 Nature</h2>
+  <div class="gallery" id="nature"></div>
 
-    <!-- CITY (10) -->
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1494526585095-14d056aef1a5?auto=format&fit=crop&w=800&q=80" alt="City at Dusk"><div class="caption">City at Dusk</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1477959858617-67f772b52f44?auto=format&fit=crop&w=800&q=80" alt="Urban Night Lights"><div class="caption">Urban Night Lights</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1496307042754-76f56a6432c1?auto=format&fit=crop&w=800&q=80" alt="Skyscraper Reflection"><div class="caption">Skyscraper Reflection</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1431093936894-65a7aefec589?auto=format&fit=crop&w=800&q=80" alt="Busy City Street"><div class="caption">Busy City Street</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80" alt="Historic Cityscape"><div class="caption">Historic Cityscape</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1473950852892-ecef575f38a6?auto=format&fit=crop&w=800&q=80" alt="Rooftop View Over City"><div class="caption">Rooftop View Over City</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1446776811953-03e5a5a6d37f?auto=format&fit=crop&w=800&q=80" alt="City Bridge Evening"><div class="caption">City Bridge Evening</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1502920917128-1aa500764ff1?auto=format&fit=crop&w=800&q=80" alt="Metropolitan Skyline"><div class="caption">Metropolitan Skyline</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1496588152823-eaff0b9512c7?auto=format&fit=crop&w=800&q=80" alt="City Alley at Night"><div class="caption">City Alley at Night</div></div>
-    <div class="gallery-item" data-category="city"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Urban Street Art"><div class="caption">Urban Street Art</div></div>
+  <h2>🐾 Animals</h2>
+  <div class="gallery" id="animals"></div>
 
-    <!-- ANIMALS (10) -->
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1497368814754-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80" alt="Lion in Savannah"><div class="caption">Lion in Savannah</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1501706362039-a8c49d90a65a?auto=format&fit=crop&w=800&q=80" alt="Elephant Herd"><div class="caption">Elephant Herd</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80" alt="Golden Retriever"><div class="caption">Golden Retriever</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1546182990-4309a09d8a67?auto=format&fit=crop&w=800&q=80" alt="Bird in Flight"><div class="caption">Bird in Flight</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1504208434309-ca0eeb0a7eb1?auto=format&fit=crop&w=800&q=80" alt="Red Fox"><div class="caption">Red Fox</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1516024897591-9b9c12d16f1b?auto=format&fit=crop&w=800&q=80" alt="Penguin on Ice"><div class="caption">Penguin on Ice</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1438522369118-334ea6efd994?auto=format&fit=crop&w=800&q=80" alt="Tiger Face"><div class="caption">Tiger Face</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1495435229348-dbb6f6c6f6d6?auto=format&fit=crop&w=800&q=80" alt="Koala Sleeping"><div class="caption">Koala Sleeping</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1470166343388-8d29a9b1b9e3?auto=format&fit=crop&w=800&q=80" alt="Hummingbird Close-Up"><div class="caption">Hummingbird Close-Up</div></div>
-    <div class="gallery-item" data-category="animals"><img src="https://images.unsplash.com/photo-1456926631375-5d33a022c8e5?auto=format&fit=crop&w=800&q=80" alt="Giraffe in Savanna"><div class="caption">Giraffe in Savanna</div></div>
-  </main>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="close" aria-label="close">&times;</button>
-    <button class="prev" aria-label="previous">&#10094;</button>
-    <img class="lightbox-image" src="" alt="">
-    <div class="lightbox-caption"></div>
-    <button class="next" aria-label="next">&#10095;</button>
-  </div>
+  <h2>🏙️ City</h2>
+  <div class="gallery" id="city"></div>
 
   <script src="script.js"></script>
 </body>
