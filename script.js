@@ -1,65 +1,81 @@
-/* ======================================================
-   Polished gallery script
-   - 10 images per category (Nature / City / Animals)
-   - filters, lightbox with prev/next, keyboard navigation
-   ====================================================== */
-
-const galleryEl = document.getElementById('gallery');
-const filterBtns = document.querySelectorAll('.filter-btn');
+// Lightbox & navigation
 const lightbox = document.getElementById('lightbox');
-const lbImage = document.querySelector('.lb-image');
-const lbCaption = document.querySelector('.lb-caption');
-const lbClose = document.querySelector('.lb-close');
-const lbPrev = document.querySelector('.lb-prev');
-const lbNext = document.querySelector('.lb-next');
+const lightboxImage = document.querySelector('.lightbox-image');
+const lightboxCaption = document.querySelector('.lightbox-caption');
+const images = document.querySelectorAll('.gallery-item img');
+const closeBtn = document.querySelector('.close');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let currentIndex = 0;
 
-const images = [
-  // 10 Nature images (Unsplash queries - curated to match nature)
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=1", cat: "nature", title:"Mountain reflection" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=2", cat: "nature", title:"Misty forest" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=3", cat: "nature", title:"Waterfall gorge" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=4", cat: "nature", title:"Sunrise over hills" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=5", cat: "nature", title:"Rocky coastline" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=6", cat: "nature", title:"Autumn valley" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=7", cat: "nature", title:"Conifer forest" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=8", cat: "nature", title:"Desert dunes" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=9", cat: "nature", title:"Lake & trees" },
-  { src: "https://source.unsplash.com/collection/190727/1200x800?sig=10",cat: "nature", title:"Snowy peaks" },
+images.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    openLightbox(index);
+  });
+});
 
-  // 10 City images (Unsplash queries matching bustling city / skyline)
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=1", cat:"city", title:"Skyline at dusk" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=2", cat:"city", title:"Busy downtown" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=3", cat:"city", title:"Neon night city" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=4", cat:"city", title:"Skyscraper reflection" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=5", cat:"city", title:"City bridge" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=6", cat:"city", title:"Aerial city grid" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=7", cat:"city", title:"Evening streets" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=8", cat:"city", title:"Crowded crosswalk" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=9", cat:"city", title:"Urban rooftops" },
-  { src: "https://source.unsplash.com/collection/190728/1200x800?sig=10",cat:"city", title:"City lights" },
+function openLightbox(index) {
+  const img = images[index];
+  lightbox.style.display = 'flex';
+  lightboxImage.src = img.src;
+  lightboxImage.alt = img.alt;
+  lightboxCaption.textContent = img.alt;
+  currentIndex = index;
+}
 
-  // 10 Animals images (Unsplash queries matching animals/wildlife)
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=1", cat:"animals", title:"Lion portrait" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=2", cat:"animals", title:"Elephant herd" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=3", cat:"animals", title:"Colorful bird" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=4", cat:"animals", title:"Polar penguin" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=5", cat:"animals", title:"Giraffe close-up" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=6", cat:"animals", title:"Fox in grass" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=7", cat:"animals", title:"Eagle mid-flight" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=8", cat:"animals", title:"Underwater fish" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=9", cat:"animals", title:"Cute puppy" },
-  { src: "https://source.unsplash.com/collection/190726/1200x800?sig=10",cat:"animals", title:"Wild tiger" }
-];
+// Close
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
 
-// render gallery (default: show all)
-let currentList = [];
-function render(cat='all'){
-  galleryEl.innerHTML = '';
-  currentList = cat === 'all' ? images : images.filter(i=>i.cat===cat);
-  currentList.forEach((img, idx) => {
-    const card = document.createElement('article');
-    card.className = 'card';
-    card.dataset.index = idx;
-    card.dataset.cat = img.cat;
-    card.innerHTML = `
-      <img loading="lazy" src="${img.src}" alt="${img.title}">
+// Prev / Next buttons
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  openLightbox(currentIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  openLightbox(currentIndex);
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (lightbox.style.display === 'flex') {
+    if (e.key === 'ArrowLeft') {
+      prevBtn.click();
+    } else if (e.key === 'ArrowRight') {
+      nextBtn.click();
+    } else if (e.key === 'Escape') {
+      closeBtn.click();
+    }
+  }
+});
+
+// Close on background click
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+
+// Filter functionality
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.getAttribute('data-category');
+
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    galleryItems.forEach(item => {
+      if (category === 'all' || item.getAttribute('data-category') === category) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
