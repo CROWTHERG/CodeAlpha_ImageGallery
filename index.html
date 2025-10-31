@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Gallery</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Polished Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <h1>📸 Image Gallery</h1>
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="nature">Nature</button>
-      <button class="filter-btn" data-category="city">City</button>
-      <button class="filter-btn" data-category="animals">Animals</button>
+  <header class="site-header">
+    <div class="container">
+      <h1>Polished Image Gallery</h1>
+      <p class="subtitle">Nature · City · Animals — 10 images each • Click to open lightbox</p>
+
+      <div class="filters" role="tablist" aria-label="Filter images">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="nature">Nature</button>
+        <button class="filter-btn" data-category="city">City</button>
+        <button class="filter-btn" data-category="animals">Animals</button>
+      </div>
     </div>
   </header>
 
-  <main class="gallery"></main>
+  <main class="container">
+    <section class="grid gallery" id="gallery" aria-live="polite"></section>
+  </main>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-image" src="" alt="">
-    <div class="lightbox-caption"></div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-prev" aria-label="Previous image">&#10094;</button>
+    <div class="lb-content">
+      <img class="lb-image" src="" alt="">
+      <div class="lb-caption"></div>
+    </div>
+    <button class="lb-next" aria-label="Next image">&#10095;</button>
   </div>
+
+  <footer class="site-footer">
+    <div class="container">Images from Unsplash • Demo gallery</div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
